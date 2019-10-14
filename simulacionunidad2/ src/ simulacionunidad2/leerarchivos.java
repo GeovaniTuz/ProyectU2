@@ -69,11 +69,30 @@ public class leerarchivos {
 
         String corrd = String.valueOf(corridas);
 
-        /*
-      
-      sergio
-      
-         */
+        
     }
+
+        media = (2 * datos.length - 1) / (double) 3;
+        varianza = (16 * datos.length - 29) / (double) 90;
+
+        z = Math.abs((corridas - media) / Math.sqrt(varianza));
+        double zn = (1 - (alfa / 2));
+        String mdia = String.valueOf(media);
+        String varian = String.valueOf(varianza);
+
+        //System.out.println(zn);
+        //Comparamos: si es mayor mi valor Z al de la tabla, no pasa
+        String respuesta;
+        if (z < zn) {
+            respuesta = "No se puede rechazar la hipotesis de independencia. ";
+
+        } else {
+            respuesta = "No Pasa la prueba de corridas";
+
+        }
+        //return corridas;
+
+        JOptionPane.showMessageDialog(null, "Corridas Obtenidas: " + bits + " \n Total Corridas: " + corridas
+                + "\n Media: " + media + "\nVarianza = " + varianza + "\nConclusion: " + respuesta);
 
 }
